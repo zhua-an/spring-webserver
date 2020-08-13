@@ -43,7 +43,7 @@ public class AxisWsClient {
 
             //跨平台调用加上这个
 //            call.setUseSOAPAction(true);
-//            call.setSOAPActionURI("http://service.zhua.web.com/wsdl/sayHello");
+//            call.setSOAPActionURI(SOAPACTION + method);
             // 接口方法的参数名, 参数类型,参数模式 IN(输入), OUT(输出) or INOUT(输入输出)
             call.addParameter("username", XMLType.XSD_STRING, ParameterMode.IN);
             // 设置被调用方法的返回值类型
