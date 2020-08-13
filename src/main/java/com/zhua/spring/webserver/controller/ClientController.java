@@ -19,8 +19,8 @@ import java.util.Vector;
 @RestController
 public class ClientController {
 
-    private static  String ASMX_URL = "http://localhost:8888/sjjk.asmx?";
-    private static  String SOAPACTION="http://tempuri.org/";
+    private static  String ASMX_URL = "http://127.0.0.1:11008/webService/myWebService?wsdl";
+    private static  String SOAPACTION="http://service.zhua.web.com/wsdl";
 
     /**
      * 调用webserver样例
@@ -29,7 +29,7 @@ public class ClientController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/toWebServer", method = RequestMethod.POST)
+    @RequestMapping(value = "/toWebServer")
     public String toWebServer(String method, String data) throws Exception{
         String returnValue = "";
 
@@ -44,6 +44,7 @@ public class ClientController {
 
             call.setReturnType(org.apache.axis.encoding.XMLType.XSD_STRING);
 
+            //跨平台调用加上这个
             call.setUseSOAPAction(true);
             call.setSOAPActionURI(SOAPACTION + method);
             //传递参数获取返回值
